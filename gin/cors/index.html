@@ -1,0 +1,29 @@
+<html>
+<head>
+  <script>
+    function makeCorsRequest() {
+      var xhr = new XMLHttpRequest();
+      var url = 'http://127.0.0.1:9091/data'; // 目标跨域请求的URL
+
+      xhr.open('PUT', url, true);
+      // xhr.setRequestHeader('X-Custom-Header', 'value');
+
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          var response = JSON.parse(xhr.responseText);
+          console.log(response);
+        }
+      };
+
+      xhr.onerror = function () {
+        console.error('请求失败');
+      };
+
+      xhr.send();
+    }
+  </script>
+</head>
+<body>
+<button onclick="makeCorsRequest()">发送跨域请求</button>
+</body>
+</html>
