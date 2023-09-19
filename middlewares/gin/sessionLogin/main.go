@@ -46,6 +46,12 @@ func main() {
 			// 设置session
 			sess := sessions.Default(ctx)
 			sess.Set("userId", 123)
+
+			// Gin 的 Session 用这些选项来初始化 Cookie。除了 MaxAge 有多层含义，其它参数就是在 Cookie里的含义
+			//MaxAge 则不同，它一方面用来控制 Cookie，而有一些实现，也用它来控制 Session 中的 key、value 的过
+			//期时间。
+			//比如 Redis，它会用这个来控制你的数据的过期时间
+
 			sess.Options(sessions.Options{
 				Secure:   true,
 				HttpOnly: true,
