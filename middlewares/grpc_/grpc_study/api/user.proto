@@ -1,0 +1,33 @@
+// 使用 protobuf 协议版本 3
+syntax = "proto3";
+// 声明所属的包名为 HelloWorld, 用于分辨不同 .proto文件 里的message
+package HelloWorld;
+// 配置生成 Go 代码时的包路径  生成的.go文件在当前路径/gen 文件夹下，go package 为： studyapi
+option go_package = "/gen;studyapi";
+
+service SimpleService { // 定义一个名为 SimpleService 的服务
+    rpc SayHello(HelloReq) returns (HelloResp); // 在 Greeter 服务中定义了一个名为 SayHello 的远程过程调用（RPC）
+}
+
+message HelloReq { // 定义一个消息类型 HelloReq
+    string name = 1; // 字符串类型字段 name，字段标识为1
+    int32 age = 2;
+
+    enum PhoneType { // 定义一个枚举类型 PhoneType
+        PHONE_TYPE_UNSPECIFIED = 0; // 枚举值 0，表示未指定
+        PHONE_TYPE_MOBILE = 1;
+        PHONE_TYPE_HOME = 2;
+        PHONE_TYPE_WORK = 3;
+    }
+
+    message PhoneNumber { // 定义一个嵌套消息类型 PhoneNumber
+        string number = 1;
+        PhoneType type = 2; // PhoneType 类型字段 type，字段标识为2
+    }
+    repeated PhoneNumber phones = 3; // PhoneNumber 类型的数组字段 phones，可以重复出现
+}
+
+message HelloResp {
+    string message = 1;
+}
+
