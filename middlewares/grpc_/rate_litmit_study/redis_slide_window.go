@@ -4,6 +4,7 @@ import (
 	"context"
 	_ "embed"
 	"errors"
+	"github.com/redis/go-redis/v9"
 	"google.golang.org/grpc"
 	"time"
 )
