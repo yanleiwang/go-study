@@ -1,10 +1,16 @@
 package main
 
-import "fmt"
+import "time"
 
 func main() {
-	s := []int{0, 1, 2, 3, 4, 5, 6, 7}
+	ticker := time.NewTicker(time.Second)
 
-	copy(s[2:(len(s)-1)], s[3:])
-	fmt.Println(s)
+	for {
+		select {
+		case <-ticker.C:
+			println("timeout")
+			ticker.C <- time.Now()
+		}
+	}
+
 }

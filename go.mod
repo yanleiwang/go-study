@@ -3,7 +3,6 @@ module go-study
 go 1.19
 
 require (
-	github.com/DATA-DOG/go-sqlmock v1.5.0
 	github.com/IBM/sarama v1.41.2
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gin-contrib/cors v1.4.0
@@ -11,6 +10,8 @@ require (
 	github.com/gin-gonic/gin v1.9.1
 	github.com/go-zookeeper/zk v1.0.3
 	github.com/golang/mock v1.6.0
+	github.com/google/uuid v1.3.0
+	github.com/google/wire v0.5.0
 	github.com/mattn/go-sqlite3 v2.0.3+incompatible
 	github.com/redis/go-redis/v9 v9.1.0
 	github.com/samuel/go-zookeeper v0.0.0-20201211165307-7117e9ea2414
@@ -18,8 +19,8 @@ require (
 	github.com/stretchr/testify v1.8.4
 	go.etcd.io/etcd/api/v3 v3.5.9
 	go.etcd.io/etcd/client/v3 v3.5.9
-	golang.org/x/crypto v0.13.0
-	golang.org/x/sync v0.3.0
+	golang.org/x/crypto v0.15.0
+	golang.org/x/sync v0.5.0
 	google.golang.org/grpc v1.58.1
 	google.golang.org/protobuf v1.31.0
 	gorm.io/driver/sqlite v1.5.3
@@ -78,12 +79,15 @@ require (
 	github.com/ugorji/go/codec v1.2.11 // indirect
 	go.etcd.io/etcd/client/pkg/v3 v3.5.9 // indirect
 	go.uber.org/atomic v1.7.0 // indirect
+	go.uber.org/mock v0.3.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
 	go.uber.org/zap v1.17.0 // indirect
 	golang.org/x/arch v0.3.0 // indirect
-	golang.org/x/net v0.15.0 // indirect
-	golang.org/x/sys v0.12.0 // indirect
-	golang.org/x/text v0.13.0 // indirect
+	golang.org/x/mod v0.14.0 // indirect
+	golang.org/x/net v0.18.0 // indirect
+	golang.org/x/sys v0.14.0 // indirect
+	golang.org/x/text v0.14.0 // indirect
+	golang.org/x/tools v0.15.0 // indirect
 	google.golang.org/genproto v0.0.0-20230711160842-782d3b101e98 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20230711160842-782d3b101e98 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20230711160842-782d3b101e98 // indirect

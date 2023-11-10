@@ -1,4 +1,4 @@
-package zookeeper_
+package main
 
 import (
 	"fmt"
