@@ -2,7 +2,8 @@ package tester
 
 import (
 	"errors"
-	"geektime-go-study/study/test/mocks"
+	"go-study/tester/mocks"
+
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
 	"testing"
