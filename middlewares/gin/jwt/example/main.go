@@ -1,3 +1,4 @@
+// jwt包使用例子
 package main
 
 import (
@@ -24,7 +25,6 @@ func GenerateToken(username, password string) (string, error) {
 		password,
 		jwt.RegisteredClaims{
 			ExpiresAt: jwt.NewNumericDate(expireTime),
-			Issuer:    "gin-blog",
 		},
 	}
 
@@ -34,18 +34,17 @@ func GenerateToken(username, password string) (string, error) {
 	return token, err
 }
 
-func ParseToken(token string) (*Claims, error) {
-	tokenClaims, err := jwt.ParseWithClaims(token, &Claims{}, func(token *jwt.Token) (interface{}, error) {
+func ParseToken(tokenStr string) (Claims, error) {
+	claims := Claims{}
+	token, err := jwt.ParseWithClaims(tokenStr, &claims, func(token *jwt.Token) (interface{}, error) {
 		return jwtSecret, nil
 	})
 
-	if tokenClaims != nil {
-		if claims, ok := tokenClaims.Claims.(*Claims); ok && tokenClaims.Valid {
-			return claims, nil
-		}
+	if err != nil || !token.Valid {
+		return Claims{}, err
 	}
 
-	return nil, err
+	return claims, nil
 }
 
 func main() {
