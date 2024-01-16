@@ -14,6 +14,7 @@ func main() {
 		c.JSON(200, gin.H{
 			"message": "这是一个 POST 方法",
 		})
+		c.Bind()
 	})
 
 	server.GET("/users/:name", func(c *gin.Context) {

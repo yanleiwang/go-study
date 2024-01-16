@@ -120,6 +120,7 @@ func (l *Lock) Unlock(ctx context.Context) error {
 }
 
 func (l *Lock) Refresh(ctx context.Context) error {
+
 	res, err := l.client.Eval(ctx, luaRefresh, []string{l.key}, l.value, l.expiration.Seconds()).Int64()
 	if err != nil {
 		return err
